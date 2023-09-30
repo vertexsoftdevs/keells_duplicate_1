@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { Border, Search, BoxArrowRight, GeoAltFill, Truck, Receipt, HeartFill } from 'react-bootstrap-icons';
+import { Border, Search, BoxArrowRight, GeoAltFill, Truck, Receipt, HeartFill, Clock, Send, Check2Circle, HandIndex, HandThumbsUp } from 'react-bootstrap-icons';
 
 import Logo from './imgs/logo.png';
 import { Button, DropdownMenu } from 'reactstrap';
@@ -10,6 +10,9 @@ import { useState } from 'react';
 import Slide1 from './imgs/slide1.jpg';
 import Slide2 from './imgs/slide2.jpg';
 import Slide3 from './imgs/slide3.jpg';
+
+import Banner1 from './imgs/banner1.jpg';
+import Banner2 from './imgs/banner2.jpg';
 
 function App() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -35,7 +38,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className=' z-10'>
+      <div className=' z-10 position-fixed top-0'>
         <div style={{ backgroundColor: "#051500" }} className='text-sm/[17px] flex flex-row items-center text-white w-screen bg-green-950 h-10'>
           <div className=' lg:w-1/2 md:ml-20 ml-20'>
 
@@ -81,71 +84,94 @@ function App() {
             style={{ borderRight: "none", border: "medium solid white  ", borderTopRightRadius: '0px', borderBottomLeftRadius: '20px' }}
             className=' w-[10rem] sm:w-[10rem] text-sm/[12px] py-2  px-5 bg-white text-black  ' onClick={() => { console.log('hi') }}>
 
-            <div class="dropdown flex flex-row bg-white">
+            <div class="dropdown flex flex-row bg-white items-center">
               <button
-                style={{ all: "unset" }}
-                class=" dropdown-toggle"
+                style={{}}
+                className=" dropdown-toggle mt-2 "
                 type="button"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-              >
-                Categories
+              >Categories
               </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{ position: 'relative', border: "none" }}>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style={{
+                position: 'relative', border: "none",
+                borderBottomRightRadius: "0px",
+                borderBottomLeftRadius: "20px",
+              }}>
                 <div className=' d-grid grid-flow-row grid-cols-12'>
-                  <div className=' col-span-6  flex flex-col'>
+                  <div className=' col-span-6  flex flex-col '>
                     <div
                       onMouseEnter={() => handleDropdown2([], 0)}
 
-                      style={{ all: "unset", border: "none" }}
-                      class="dropdown-item my-2 rounded-md " >
-                      <label>Vegetables</label>
+                      style={{ border: "none" }}
+                      class="my-2 rounded-md   " >
+                      <div className=' flex flex-row '>
+                        <label className=' mx-1'>&gt;</label>
+                        <label>Vegetables</label>
+                      </div>
                     </div>
                     <div
                       onMouseEnter={() => handleDropdown2([], 1)}
 
                       style={{ all: "unset", border: "none" }}
                       class="dropdown-item my-2" >
-                      Fruits
+                      <div className=' flex flex-row'>
+                        <label className=' mx-1'>&gt;</label>
+                        <label>Fruits</label>
+                      </div>
                     </div>
                     <div
                       onMouseEnter={() => handleDropdown2([], 2)}
 
                       style={{ all: "unset", border: "none" }}
                       class="dropdown-item my-2" >
-                      Meat
+                      <div className=' flex flex-row'>
+                        <label className=' mx-1'>&gt;</label>
+                        <label>Meat</label>
+                      </div>
                     </div>
                   </div>
-                  <div className=' col-span-6  '>
+                  <div style={{ borderBottomLeftRadius: "20px" }} className=' col-span-6    '>
                     {isDropdownVisible2[0] && (
 
                       <div style={{ borderLeft: "1px solid black" }} className='absolute  h-30 w-60 ml-20 mb-20  bg-white pb-20 '>
                         <ul>
-                          <li className=' my-1'>Pola</li>
-                          <li className=' my-1'>Organic</li>
-                          <li className=' my-1'>Packets and Units</li>
-                          <li className=' my-1'>Exotic</li>
-                          <li className=' my-1 flex flex-row'>Low Country Vegetables</li>
+                          <li className=' my-3'>Pola</li>
+                          <hr />
+                          <li className=' my-3'>Organic</li>
+                          <hr />
+                          <li className=' my-3'>Packets and Units</li>
+                          <hr />
+                          <li className=' my-3'>Exotic</li>
+                          <hr />
+                          <li className=' my-3 flex flex-row'>Low Country Vegetables</li>
+                          <hr />
                         </ul>
                       </div>
                     )}
                     {isDropdownVisible2[1] && (
 
-                      <div style={{ borderLeft: "1px solid black" }} className='absolute  h-20 w-60 ml-20 mb-20 bg-white pb-20 '>
+                      <div style={{ borderLeft: "1px solid black" }} className='absolute  h-30 w-60 ml-20 mb-20 bg-white pb-20 '>
                         <ul>
-                          <li className=' my-1'>Organic</li>
-                          <li className=' my-1'>Inorganic</li>
+                          <li className=' my-3'>Organic</li>
+                          <hr />
+                          <li className=' my-3'>Inorganic</li>
+                          <hr />
+
                         </ul>
                       </div>
                     )}
                     {isDropdownVisible2[2] && (
 
-                      <div style={{ borderLeft: "1px solid black" }} className='absolute  h-20 w-60 ml-20 mb-20 bg-white pb-20 '>
+                      <div style={{ borderLeft: "1px solid black" }} className='absolute  h-30 w-60 ml-20 mb-20 bg-white pb-20 '>
                         <ul>
-                          <li className=' my-1'>Fresh Meat</li>
-                          <li className=' my-1'>Frozen Chicken</li>
+                          <li className=' my-3'>Fresh Meat</li>
+                          <hr />
+                          <li className=' my-3'>Frozen Chicken</li>
+                          <hr />
+
                         </ul>
                       </div>
                     )}
@@ -188,13 +214,13 @@ function App() {
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={Slide1} alt="First slide"/>
+              <img className="d-block w-100" src={Slide1} alt="First slide" />
             </div>
             <div class="carousel-item">
-            <img className="d-block w-100" src={Slide2} alt="First slide"/>
+              <img className="d-block w-100" src={Slide2} alt="First slide" />
             </div>
             <div class="carousel-item">
-            <img className="d-block w-100" src={Slide3} alt="First slide"/>
+              <img className="d-block w-100" src={Slide3} alt="First slide" />
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -210,7 +236,31 @@ function App() {
         {/* <img src={Slide1} /> */}
 
 
+        <div className=' w-screen flex flex-row text-center justify-center mt-2 '>
+
+          <Clock className='text-lime-500 mt-1' />
+          <label className=' mr-10'>Delivery within 24 Hours</label>
+          <Send className='text-lime-500 mt-1' />
+          <label className=' mr-10'>Deliver to Doorstep</label>
+          <Check2Circle className='text-lime-500 mt-1' />
+          <label className=' mr-10'>Freshness Guaranteed</label>
+          <HandIndex className='text-lime-500 mt-1' />
+          <label className=' mr-10'>Click and Collect</label>
+          <HandThumbsUp className='text-lime-500 mt-1' />
+          <label>Amazing Deals</label>
+        </div>
+
+        <div className=' grid grid-flow-row grid-cols-12'>
+          <div className=' col-span-12 md:col-span-6'>
+            <img src={Banner1 } />
+          </div>
+          <div className=' col-span-12 md:col-span-6'>
+            <img src={Banner2 } />
+          </div>
+        </div>
+
       </div>
+      
     </div>
   );
 }
