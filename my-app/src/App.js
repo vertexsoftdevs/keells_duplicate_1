@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { Border, Search, BoxArrowRight, GeoAltFill, Truck, Receipt, HeartFill, Clock, Send, Check2Circle, HandIndex, HandThumbsUp } from 'react-bootstrap-icons';
+import { Border, Search, BoxArrowRight, GeoAltFill, Truck, Receipt, HeartFill, Clock, Send, Check2Circle, HandIndex, HandThumbsUp, CartFill } from 'react-bootstrap-icons';
 
 import Logo from './imgs/logo.png';
 import { Button, DropdownMenu } from 'reactstrap';
@@ -13,6 +13,18 @@ import Slide3 from './imgs/slide3.jpg';
 
 import Banner1 from './imgs/banner1.jpg';
 import Banner2 from './imgs/banner2.jpg';
+
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+
+import Item1 from './imgs/items/1.jpg';
+import Item2 from './imgs/items/2.jpg';
+import Item3 from './imgs/items/3.jpg';
+
+
+// import OwlCarousel from 'react-owl-carousel2';
+// import 'react-owl-carousel2/style.css';
 
 function App() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
@@ -208,7 +220,7 @@ function App() {
         </div>
       )} */}
       </div>
-      <div className=' z-0'>
+      <div className=' z-0 mt-20'>
 
         {/* Carousel */}
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -252,15 +264,83 @@ function App() {
 
         <div className=' grid grid-flow-row grid-cols-12'>
           <div className=' col-span-12 md:col-span-6'>
-            <img src={Banner1 } />
+            <img src={Banner1} />
           </div>
           <div className=' col-span-12 md:col-span-6'>
-            <img src={Banner2 } />
+            <img src={Banner2} />
           </div>
         </div>
 
       </div>
-      
+      <div className=' flex flex-col h-10 w-screen text-center '>
+        
+        <label className=' text-center text-4xl'>Nexus&nbsp;Deals</label>
+        
+        <OwlCarousel  responsive={{
+    0: {
+      items: 1, // Number of items to show at 0px and up screen width
+    },
+    600: {
+      items: 2, // Number of items to show at 600px and up screen width
+    },
+    1000: {
+      items: 4, // Number of items to show at 1000px and up screen width
+    }
+  }} className="owl-theme" loop margin={10} nav>
+          <div class="item text-center flex flex-col">
+            <img src={Item1} className=' h-[25rem] min-w-[60px]' />
+            <label className=' text-black font-semibold'>Orange Crush 1.5L</label>
+            <div className='  text-slate-400 font-semibold'>
+              <label className=' line-through'>Rs.425.00</label> &nbsp;&nbsp;&nbsp;&nbsp;
+              <label className=' text-lime-500'>Rs.318.00  </label>&nbsp;
+              <label className=' text-lime-500'>/ Unit</label>
+            </div>
+            <div>
+
+              <div className=' flex flex-row items-center justify-center'>
+                <CartFill className=' mb-2 mr-2' />
+                <label>Add to Cart</label>
+              </div>
+
+            </div>
+          </div>
+          <div class="item text-center flex flex-col">
+            <img src={Item2} className=' h-[25rem] min-w-[60px]' />
+            <label className=' text-black font-semibold'>Chicken Drumsticks Skinless</label>
+            <div className='  text-slate-400 font-semibold'>
+              <label className=' text-lime-500'>Rs 1,980.00 </label>&nbsp;
+              <label className=' text-lime-500'>/ kg</label>
+            </div>
+            <div>
+
+              <div className=' flex flex-row items-center justify-center'>
+                <CartFill className=' mb-2 mr-2' />
+                <label>Add to Cart</label>
+              </div>
+
+            </div>
+          </div>
+          <div class="item text-center flex flex-col">
+            <img src={Item3} className='h-[25rem] w-[60px]' />
+            <label className=' text-black font-semibold'>Baraka Virgin Coconut Oil 750ml</label>
+            <div className='  text-slate-400 font-semibold'>
+              <label className=' line-through'>Rs 1,750.00</label> &nbsp;&nbsp;&nbsp;&nbsp;
+              <label className=' text-lime-500'>Rs 1,312.00 / Unit </label>&nbsp;
+              <label className=' text-lime-500'>/ Unit</label>
+            </div>
+            <div>
+
+              <div className=' flex flex-row items-center justify-center'>
+                <CartFill className=' mb-2 mr-2' />
+                <label>Add to Cart</label>
+              </div>
+
+            </div>
+          </div>
+
+
+        </OwlCarousel>
+      </div>
     </div>
   );
 }
