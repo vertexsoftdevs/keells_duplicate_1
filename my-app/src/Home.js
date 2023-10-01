@@ -26,7 +26,7 @@ import Item3 from './imgs/items/3.jpg';
 // import OwlCarousel from 'react-owl-carousel2';
 // import 'react-owl-carousel2/style.css';
 
-function App() {
+function Home() {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
 
   const handleDropdown = (isVisible) => {
@@ -345,4 +345,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
