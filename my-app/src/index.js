@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+
 import Home from './Home.js';
+import Login from './Login.js';
+
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -26,6 +29,7 @@ const App = () => {
     { path: "/home", element: <Home /> },
     { path: "component2", element: <Component2 /> },
     { path: "component1", element: <Component1 /> },
+    {path:"login",element:<Login/>},
     // ...
   ]);
   return routes;
