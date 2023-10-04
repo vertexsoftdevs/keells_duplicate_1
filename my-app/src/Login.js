@@ -2,8 +2,54 @@ import './App.css';
 import { Border, } from 'react-bootstrap-icons';
 import Logo from './imgs/logo.png';
 import { Typeahead } from 'react-bootstrap-typeahead';
+import { useState,useEffect } from 'react';
+
+
+
+
 
 function Login() {
+    const [email, setUserEmail] = useState("");
+    const [password, setUserPassword] = useState("");
+    
+    var user = {
+        email:email,
+        password:password
+    }
+    
+    async function logIn() {
+        // try {
+        //     const response = await fetch("http://10.0.2.2/keells_duplicate_1/userLogin.php", {
+        //         method: "POST",
+        //         body: JSON.stringify({ user: user})
+        //     });
+    
+        //     const data = await response.json();
+        //     console.log(data);
+        // } catch (error) {
+        //     console.error("Error:", error);
+        // }
+        
+        let item = user;
+        let result = await fetch("http://localhost/keells_duplicate_1/userLogin.php",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json"
+            },
+            body:JSON.stringify(item)
+        });
+
+        result = await result.json();
+        alert(result);
+        localStorage.setItem("user",result);
+
+
+    }
+
+
+
+
     return (
         <div className=''>
             <div className=' grid grid-flow-row grid-cols-12 w-screen h-screen  md:pt-20 md:pl-20 md:pr-20 md:pb-20 pb-5 '>
@@ -28,7 +74,8 @@ function Login() {
                                 <label for="exampleInputPassword1">Email</label>
                                 <div style={{ borderTopRightRadius: "10px", borderBottomLeftRadius: "10px" }}
                                     className=' col-span-12 md:col-span-6  border border-slate-900 text-black  flex flex-row items-center py-2 '>
-                                    <input type='text' style={{ border: "none", backgroundColor: "", outline: "none" }} className='ps-2 bg-white w-full' placeholder='Email' />
+                                    <input onKeyUp={(event)=>{setUserEmail(event.target.value)}} 
+                                    type='text' style={{ border: "none", backgroundColor: "", outline: "none" }} className='ps-2 bg-white w-full' placeholder='Email' />
                                 </div>
                             </div>
 
@@ -36,7 +83,8 @@ function Login() {
                                 <label for="exampleInputPassword1">Password</label>
                                 <div style={{ borderTopRightRadius: "10px", borderBottomLeftRadius: "10px" }}
                                     className=' col-span-12 md:col-span-6  border border-slate-900 text-black  flex flex-row items-center py-2 '>
-                                    <input type='password' style={{ border: "none", backgroundColor: "", outline: "none" }} className='ps-2 bg-white w-full' placeholder='Password' />
+                                    <input  onKeyUp={(event)=>{setUserPassword(event.target.value)}} 
+                                    type='password' style={{ border: "none", backgroundColor: "", outline: "none" }} className='ps-2 bg-white w-full' placeholder='Password' />
                                 </div>
                             </div>
 
@@ -47,7 +95,8 @@ function Login() {
                             <label class="form-check-label" for="exampleCheck1">Remember Me?</label>
                         </div>
                         <div className=' mr-3 flex flex-row justify-end'>
-                            <button className='  px-10 py-2 text-white font-bold ' type="submit" style={{ backgroundColor: "#51AC37", borderTopRightRadius: '15px', borderBottomLeftRadius: '15px', }} >Log In</button>
+                            <button onClick={()=>{logIn();}}
+                            className='  px-10 py-2 text-white font-bold ' type="submit" style={{ backgroundColor: "#51AC37", borderTopRightRadius: '15px', borderBottomLeftRadius: '15px', }} >Log In</button>
 
                         </div>
 
@@ -91,13 +140,11 @@ function Login() {
                                     className=' h-full ps-2 bg-white' placeholder='OTP Number' />
                             </div>
                             <div className=' mr-3 flex flex-row justify-end'>
-                                <button className='  px-10 py-2 text-white font-bold ' type="submit" style={{ backgroundColor: "#5C5C5C", borderTopRightRadius: '15px', borderBottomLeftRadius: '15px', }} >Submit</button>
+                                <button onClick={()=>{}} className='  px-10 py-2 text-white font-bold ' type="submit" style={{ backgroundColor: "#5C5C5C", borderTopRightRadius: '15px', borderBottomLeftRadius: '15px', }} >Submit</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );
