@@ -76,6 +76,7 @@ function Home() {
 
 
   }
+
   useEffect(() => {
     // Simulate loading delay for demonstration purposes
     setTimeout(() => {
@@ -83,8 +84,34 @@ function Home() {
     }, 15000); // 2000 milliseconds (2 seconds) delay for demonstration
   }, []); 
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let config = {
+          method: 'get',
+          maxBodyLength: Infinity,
+          url: 'http://localhost/keellsBackend/displayItems.php',
+          headers: {}
+        };
+  
+        const response = await axios.request(config);
+        setProductArray(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    // Delay the execution of fetchData by 10 seconds (10000 milliseconds) once
+    const fetchDataTimeout = setTimeout(fetchData, 10000);
+  
+    // Clear the timeout to avoid subsequent executions if the component unmounts
+    return () => {
+      clearTimeout(fetchDataTimeout);
+    };
+  }, []);
 
-  setTimeout(setProducts, 10000);
+
+  // setTimeout(setProducts, 10000);
 
   if (localStorage.getItem("loginObj"))
 
