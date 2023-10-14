@@ -13,8 +13,8 @@ const Page = () => {
                 <div className=' invisible mx-4'>
                     aa
                 </div>
-                <div className="rounded-tl-[0.45rem] rounded-br-[0.45rem] border-[3px] border-lime-500 z-10 w-80 ">
-                    <img src={Image1} alt='' />
+                <div className=" p-3 px-2 rounded-tl-[0.45rem] rounded-br-[0.45rem] border-[3px] border-lime-500 z-10  ">
+                    <img className='  md:min-w-fit ' src={Image1} alt='' />
                 </div>
                 <div className=' invisible mx-4'>
                     aa
