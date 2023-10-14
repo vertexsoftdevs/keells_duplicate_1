@@ -4,6 +4,7 @@ import './index.css';
 
 import Home from './Home.js';
 import Login from './Login';
+import Page from './Page';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -24,12 +25,14 @@ const Component2 = () => {
   return <h1>Component 2</h1>;
 };
 
+
 const App = () => {
   let routes = useRoutes([
     { path: "/home", element: <Home /> },
-    { path: "component2", element: <Component2 /> },
-    { path: "component1", element: <Component1 /> },
-    { path: "login", element: <Login /> },
+    { path: "/component2", element: <Component2 /> },
+    { path: "/component1", element: <Component1 /> },
+    { path: "/login", element: <Login /> },
+    {path:"/product",element:<Page/>},
     // ...
   ]);
   return routes;
