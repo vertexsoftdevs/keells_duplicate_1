@@ -364,8 +364,8 @@ function Home() {
                     <img src={product.img} className=' h-[25rem] min-w-[60px]' />
                     <label className=' text-black font-semibold'>{product.name}</label>
                     <div className='  text-slate-400 font-semibold'>
-                      <label className=' line-through'>Rs.425.00</label> &nbsp;&nbsp;&nbsp;&nbsp;
-                      <label className=' text-lime-500'>Rs.{product.unit_price}.00  </label>&nbsp;
+                      <label className=' line-through'>Rs.{product.unit_price}.00</label> &nbsp;&nbsp;&nbsp;&nbsp;
+                      <label className=' text-lime-500'>Rs.{product.unit_price -200}.00  </label>&nbsp;
                       <label className=' text-lime-500'>/ Unit</label>
                     </div>
                     <div>
